@@ -10,6 +10,18 @@ interface ICreateNewPost {
 }
 
 export const PostService = {
+	getAllPosts: async () => {
+		const { data } = await supabase.from('post').select()
+		return data
+	},
+	getPostById: async (postId: string) => {
+		const { data } = await supabase
+			.from('post')
+			.select()
+			.eq('id', postId)
+			.single()
+		return data
+	},
 	getUserPosts: async (userId: string) => {
 		const { data } = await supabase.from('post').select().eq('userId', userId)
 		return data
