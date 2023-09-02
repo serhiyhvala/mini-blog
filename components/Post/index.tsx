@@ -11,6 +11,8 @@ import { PostService } from '@/services/post.service'
 
 import { convertData } from '@/utils/convertData'
 
+import CommentForm from '../CommentForm'
+import Comments from '../Comments'
 import { Button } from '../ui/button'
 import { Loader } from '../ui/loader'
 
@@ -19,6 +21,7 @@ interface IPostProps {
 }
 
 export default function PostProps({ postId }: IPostProps) {
+	const { data: user } = useUserProfile()
 	const { data, isLoading } = useQuery(['post_page'], () =>
 		PostService.getPostById(postId)
 	)
@@ -49,6 +52,13 @@ export default function PostProps({ postId }: IPostProps) {
 					</span>
 				</div>
 			</div>
+			<Comments postId={postId} />
+			{user && !user.isWriter && (
+				<div className='flex items-center justify-center flex-col gap-5'>
+					<span className='text-3xl font-bold'>Write comment</span>
+					<CommentForm postId={postId} userId={user.id} />
+				</div>
+			)}
 		</div>
 	)
 }
