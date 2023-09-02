@@ -13,8 +13,8 @@ import { Button } from '../ui/button'
 import { Loader } from '../ui/loader'
 
 export default function HomePage() {
-	const { data, isLoading } = useUserProfile()
-	const { data: posts } = useQuery(['all_posts'], () =>
+	const { data } = useUserProfile()
+	const { data: posts, isLoading } = useQuery(['all_posts'], () =>
 		PostService.getAllPosts()
 	)
 	return isLoading ? (
