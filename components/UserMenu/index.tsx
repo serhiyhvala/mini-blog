@@ -1,14 +1,16 @@
 'use client'
 
+import { LogOut, User } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
+	DropdownMenuSeparator,
 	DropdownMenuTrigger
-} from '@radix-ui/react-dropdown-menu'
-import { LogOut, User } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
+} from '../ui/dropdown-menu'
 
 interface IUserMenu {
 	image: string
@@ -26,21 +28,16 @@ export default function UserMenu({ image }: IUserMenu) {
 					className='rounded-full cursor-pointer'
 				/>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent className='bg-white shadow-xl p-4 flex flex-col gap-4 rounded-lg mr-4'>
+			<DropdownMenuContent>
 				<DropdownMenuItem asChild>
-					<Link
-						href='/profile'
-						className='flex items-center gap-3 hover:text-blue-500 transition hover:outline-none'
-					>
+					<Link href='/profile' className='flex items-center gap-3'>
 						<User className='w-5 h-5' />
 						<span>My Profile</span>
 					</Link>
 				</DropdownMenuItem>
+				<DropdownMenuSeparator />
 				<DropdownMenuItem asChild>
-					<Link
-						href='/api/auth/signout'
-						className='flex items-center gap-3 hover:text-blue-500 transition hover:outline-none'
-					>
+					<Link href='/api/auth/signout' className='flex items-center gap-3 '>
 						<LogOut className='w-5 h-5' />
 						<span>Sign Out</span>
 					</Link>
