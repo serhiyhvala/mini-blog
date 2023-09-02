@@ -65,7 +65,7 @@ export default function NewFormPost() {
 			if (data?.id) {
 				mutate({ values, userId: data.id })
 				toast.success('Post created successfully')
-				router.push('/')
+				router.push('/my-posts')
 			}
 		} catch (error) {
 			toast.error('Something went wrong')
