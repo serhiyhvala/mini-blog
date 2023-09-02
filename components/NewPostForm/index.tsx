@@ -32,7 +32,9 @@ export const postSchema = z.object({
 	}),
 	image: z.object({
 		info: z.object({
-			secure_url: z.string()
+			secure_url: z.string().min(10, {
+				message: 'Image must be uploaded'
+			})
 		})
 	}),
 	description: z.string().min(10, {
