@@ -12,6 +12,43 @@ export type Json =
 export interface Database {
 	public: {
 		Tables: {
+			comment: {
+				Row: {
+					comment: string | null
+					created_at: string
+					id: string
+					postId: string | null
+					userId: string | null
+				}
+				Insert: {
+					comment?: string | null
+					created_at?: string
+					id?: string
+					postId?: string | null
+					userId?: string | null
+				}
+				Update: {
+					comment?: string | null
+					created_at?: string
+					id?: string
+					postId?: string | null
+					userId?: string | null
+				}
+				Relationships: [
+					{
+						foreignKeyName: 'comment_postId_fkey'
+						columns: ['postId']
+						referencedRelation: 'post'
+						referencedColumns: ['id']
+					},
+					{
+						foreignKeyName: 'comment_userId_fkey'
+						columns: ['userId']
+						referencedRelation: 'user'
+						referencedColumns: ['id']
+					}
+				]
+			}
 			post: {
 				Row: {
 					created_at: string
