@@ -3,6 +3,8 @@ import { Poppins } from 'next/font/google'
 
 import Header from '@/components/Header'
 
+import { joinTitle } from '@/utils/joinTitle'
+
 import './globals.css'
 import Providers from '@/providers'
 
@@ -12,7 +14,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-	title: 'Mini Blog',
+	title: joinTitle('Home page'),
 	icons: ['/logo.svg']
 }
 
