@@ -10,6 +10,10 @@ interface ICreateNewPost {
 }
 
 export const PostService = {
+	getUserPosts: async (userId: string) => {
+		const { data } = await supabase.from('post').select().eq('userId', userId)
+		return data
+	},
 	createNewPost: async ({ values, userId }: ICreateNewPost) => {
 		return await supabase.from('post').insert({
 			title: values.title,
