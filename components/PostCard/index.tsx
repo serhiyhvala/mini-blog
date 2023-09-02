@@ -18,7 +18,7 @@ export default function PostCard({
 	created_at
 }: IPostCard) {
 	return (
-		<div className='flex bg-white rounded-xl shadow-lg flex-col max-w-[300px] w-full'>
+		<div className='flex bg-white dark:bg-gray-800 rounded-xl shadow-lg flex-col max-w-[300px] w-full'>
 			<Image
 				src={image as string}
 				alt={title as string}

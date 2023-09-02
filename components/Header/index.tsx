@@ -2,6 +2,7 @@ import { Newspaper } from 'lucide-react'
 import Link from 'next/link'
 
 import AuthButtons from '../AuthButtons'
+import ThemeToggle from '../ThemeToggle'
 
 export default function Header() {
 	return (
@@ -14,6 +15,7 @@ export default function Header() {
 					<Newspaper className='w-7 h-7' />
 					<span className='uppercase text-xl'>MiniBlog</span>
 				</Link>
+				<ThemeToggle />
 				<AuthButtons />
 			</div>
 		</header>
