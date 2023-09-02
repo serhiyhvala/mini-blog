@@ -22,7 +22,9 @@ export default function HomePage() {
 							<span>Write new post</span>
 						</Link>
 					</Button>
-					<Button>All Posts</Button>
+					<Button asChild>
+						<Link href='/my-posts'>My posts</Link>
+					</Button>
 				</div>
 			)}
 		</div>
